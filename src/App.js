@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { Component } from 'react';
 import './App.css';
+import Profile from "./Profile/Profile";
 
-function App() {
-  return (
+
+export default class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state={show: false}
+  }
+  handleclick=()=>this.setState({show:!this.state.show})
+  render(){
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <h1>click the button</h1>
+    
+       <button onClick={this.handleclick}>click me</button>
+       {this.state.show? <Profile/>:null}
+
     </div>
   );
 }
-
-export default App;
+}
